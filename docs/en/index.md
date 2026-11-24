@@ -62,9 +62,23 @@ I built a data pipeline that fetches train data from the Fintraffic API, models 
 
 <div class="article-card" markdown>
 
+<p class="card-meta">Team project · company data</p>
+
+### Manhole covers with computer vision – YOLO or Faster R-CNN?
+
+We trained and compared object detection models on a dataset of over 10,000 images. I was the Product Owner, designed the annotation process, tested the effect of preprocessing and was responsible for the Faster R-CNN model.
+
+<p class="card-tags">Python · PyTorch · YOLO · Faster R-CNN · Label Studio · PostgreSQL · Scrum</p>
+
+[Read (in Finnish) →](../projektit/kaivonkannet.md){ .card-link }
+
+</div>
+
+<div class="article-card" markdown>
+
 <p class="card-meta">Team project · four students</p>
 
-### Kickstarter project success predictor
+### Kickstarter campaign success predictor
 
 Predicts how likely a Kickstarter project is to succeed. The app also gives AI-generated improvement suggestions based on which features drove the model's prediction. I was Project Owner and developer, involved in almost every stage: data preprocessing, feature engineering, model comparison and the Streamlit app.
 
@@ -77,6 +91,20 @@ Predicts how likely a Kickstarter project is to succeed. The app also gives AI-g
 ## Writing
 
 The articles are written in Finnish. Most are based on my coursework, and each one ends with a note on its background. Hesh'thar is my own project.
+
+<div class="article-card" markdown>
+
+<p class="card-meta">Based on coursework · Deep Learning I</p>
+
+### A more complex model is not automatically better
+
+I compared neural networks and pretrained models with simpler approaches. In several experiments the simple model came close, and even a strong model stumbled on the data.
+
+<p class="card-tags">PyTorch · transfer learning · Naive Bayes · RoBERTa · MobileNet · InceptionV3</p>
+
+[Read (in Finnish) →](../kirjoitukset/monimutkaisempi-malli.md){ .card-link }
+
+</div>
 
 <div class="article-card" markdown>
 
@@ -103,20 +131,6 @@ I made a short generative video in which the same character carries across scene
 <p class="card-tags">Nano Banana 2 · Sora · Kling · DaVinci Resolve · prompting</p>
 
 [Read (in Finnish) →](../kirjoitukset/genai-hahmon-jatkuvuus.md){ .card-link }
-
-</div>
-
-<div class="article-card" markdown>
-
-<p class="card-meta">Based on coursework · Introduction to Machine Learning</p>
-
-### How do you get a usable colour palette from an image?
-
-I wrote a script that extracts a colour palette from an image with k-Means and compared the RGB and HSV colour spaces, choosing the number of clusters with the elbow method.
-
-<p class="card-tags">Python · OpenCV · scikit-learn · k-Means · clustering</p>
-
-[Read (in Finnish) →](../kirjoitukset/kuvan-varit.md){ .card-link }
 
 </div>
 

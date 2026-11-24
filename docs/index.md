@@ -60,9 +60,23 @@ Rakensin dataputken, joka hakee junadatan Fintrafficin rajapinnasta, mallintaa s
 
 <div class="article-card" markdown>
 
+<p class="card-meta">Tiimiprojekti · yrityksen aineisto</p>
+
+### Kaivonkannet konenäöllä – YOLO vai Faster R-CNN?
+
+Koulutimme ja vertailimme kohteentunnistusmalleja yli 10 000 kuvan aineistolla. Olin Product Owner, suunnittelin annotointiprosessin, testasin esikäsittelyn vaikutusta ja vastasin Faster R-CNN -mallista.
+
+<p class="card-tags">Python · PyTorch · YOLO · Faster R-CNN · Label Studio · PostgreSQL · Scrum</p>
+
+[Lue projektista →](projektit/kaivonkannet.md){ .card-link }
+
+</div>
+
+<div class="article-card" markdown>
+
 <p class="card-meta">Tiimiprojekti · neljä opiskelijaa</p>
 
-### Kickstarter-projektin onnistumisen ennustaja
+### Kickstarter-kampanjan onnistumisen ennustaja
 
 Ennustaa, kuinka todennäköisesti Kickstarter-projekti onnistuu. Sovellus antaa myös tekoälyn tuottamia parannusehdotuksia sen perusteella, mitkä piirteet vaikuttivat mallin ennusteeseen. Olin tiimissä Project Owner ja kehittäjä ja mukana lähes kaikissa vaiheissa: datan esikäsittelyssä, feature engineeringissä, mallien vertailussa ja Streamlit-sovelluksessa.
 
@@ -75,6 +89,20 @@ Ennustaa, kuinka todennäköisesti Kickstarter-projekti onnistuu. Sovellus antaa
 ## Kirjoitukset
 
 Kirjoitukset pohjautuvat pääosin kurssitöihini, ja jokaisen lopussa kerrotaan sen tausta. Hesh'thar on oma projektini.
+
+<div class="article-card" markdown>
+
+<p class="card-meta">Kurssityön pohjalta · Syväoppiminen I</p>
+
+### Monimutkaisempi malli ei ole automaattisesti parempi
+
+Vertasin neuroverkkoja ja valmiita malleja yksinkertaisempiin ratkaisuihin. Useassa kokeilussa yksinkertainen malli ylsi lähes samaan, ja vahvakin malli kompastui dataan.
+
+<p class="card-tags">PyTorch · siirtovaikutus · Naive Bayes · RoBERTa · MobileNet · InceptionV3</p>
+
+[Lue kirjoitus →](kirjoitukset/monimutkaisempi-malli.md){ .card-link }
+
+</div>
 
 <div class="article-card" markdown>
 
@@ -101,20 +129,6 @@ Tein generatiivisen lyhytvideon, jossa sama hahmo kulkee kohtauksesta toiseen. M
 <p class="card-tags">Nano Banana 2 · Sora · Kling · DaVinci Resolve · promptaus</p>
 
 [Lue kirjoitus →](kirjoitukset/genai-hahmon-jatkuvuus.md){ .card-link }
-
-</div>
-
-<div class="article-card" markdown>
-
-<p class="card-meta">Kurssityön pohjalta · Johdatus koneoppimiseen</p>
-
-### Miten kuvasta syntyy toimiva väripaletti?
-
-Kirjoitin skriptin, joka muodostaa kuvasta väripaletin k-Meansilla, ja vertasin RGB- ja HSV-väriavaruutta. Klustereiden määrän valitsin elbow-menetelmällä.
-
-<p class="card-tags">Python · OpenCV · scikit-learn · k-Means · klusterointi</p>
-
-[Lue kirjoitus →](kirjoitukset/kuvan-varit.md){ .card-link }
 
 </div>
 

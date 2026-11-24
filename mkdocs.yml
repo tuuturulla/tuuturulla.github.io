@@ -6,6 +6,8 @@ site_url: https://tuuturulla.github.io/
 exclude_docs: |
   assets/**/*.png
   !assets/junajumis-arkkitehtuuri.png
+  # Hidden for now; the file is kept so it can be restored later.
+  kirjoitukset/kuvan-varit.md
 
 theme:
   name: material
@@ -29,10 +31,11 @@ nav:
   - Projektit:
       - "Menomittari – mihin rahat menevät?": projektit/menomittari.md
       - "JunaJumis – asemat, joissa aikataulu käy kahvilla": projektit/junajumis.md
+      - "Kaivonkannet konenäöllä": projektit/kaivonkannet.md
   - Koneoppiminen ja tekoäly:
+      - Monimutkaisempi malli ei ole automaattisesti parempi: kirjoitukset/monimutkaisempi-malli.md
       - Sanoista numeroiksi: kirjoitukset/kieli-ja-konteksti.md
       - "Kun malli vaihtuu: hahmon jatkuvuus generatiivisessa kuvassa": kirjoitukset/genai-hahmon-jatkuvuus.md
-      - Miten kuvasta syntyy toimiva väripaletti?: kirjoitukset/kuvan-varit.md
   - Data:
       - Aikasarjadata tarvitsee ehjän aikajanan: kirjoitukset/aikasarjojen-aikajarjestys.md
       - Milloin datasta tulee tietoa – ja arvoa?: kirjoitukset/datasta-tietoa-ja-arvoa.md
