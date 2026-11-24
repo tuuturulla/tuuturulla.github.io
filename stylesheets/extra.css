@@ -494,3 +494,15 @@
   color: var(--portfolio-rust) !important;
   box-shadow: none !important;
 }
+
+/* "Takaisin ylös" button: use the portfolio colours in both colour schemes. */
+.md-top {
+  background-color: var(--portfolio-paper);
+  color: var(--portfolio-muted);
+}
+
+.md-top:focus,
+.md-top:hover {
+  background-color: var(--portfolio-rust);
+  color: #fff9f2;
+}

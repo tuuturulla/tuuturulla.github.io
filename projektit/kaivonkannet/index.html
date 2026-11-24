@@ -1,0 +1,1208 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tiimiprojekti yrityksen aineistolla. Annotointiprosessi, esikäsittelykokeet ja kahden kohteentunnistusmallin vertailu.">
+      
+      
+      
+        <link rel="canonical" href="https://tuuturulla.github.io/projektit/kaivonkannet/">
+      
+      
+        <link rel="prev" href="../junajumis/">
+      
+      
+        <link rel="next" href="../../kirjoitukset/monimutkaisempi-malli/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Kaivonkannet konenäöllä – YOLO vai Faster R-CNN? - Sara Pyky | Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="portfolio" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kaivonkannet-konenaolla-yolo-vai-faster-r-cnn" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="../.." title="Sara Pyky | Portfolio" class="md-header__button md-logo" aria-label="Sara Pyky | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sara Pyky | Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kaivonkannet konenäöllä – YOLO vai Faster R-CNN?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="portfolio" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Välilehdet" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Etusivu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../menomittari/" class="md-tabs__link">
+          
+  
+  
+  Projektit
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../kirjoitukset/monimutkaisempi-malli/" class="md-tabs__link">
+          
+  
+  
+  Koneoppiminen ja tekoäly
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../kirjoitukset/aikasarjojen-aikajarjestys/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../en/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  In English
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sara Pyky | Portfolio" class="md-nav__button md-logo" aria-label="Sara Pyky | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sara Pyky | Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Etusivu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projektit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projektit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../menomittari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menomittari – mihin rahat menevät?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junajumis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JunaJumis – asemat, joissa aikataulu käy kahvilla
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kaivonkannet konenäöllä
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kaivonkannet konenäöllä
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aineisto-ei-ollut-helppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aineisto ei ollut helppo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotointiprosessi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotointiprosessi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esikasittelykokeet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esikäsittelykokeet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faster-r-cnn-yoloa-tuli-ikava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faster R-CNN: YOLOa tuli ikävä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tulokset-kumpi-malli-on-parempi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tulokset: kumpi malli on parempi?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mita-opin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitä opin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Koneoppiminen ja tekoäly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Koneoppiminen ja tekoäly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kirjoitukset/monimutkaisempi-malli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monimutkaisempi malli ei ole automaattisesti parempi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kirjoitukset/kieli-ja-konteksti/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanoista numeroiksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kirjoitukset/genai-hahmon-jatkuvuus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kun malli vaihtuu: hahmon jatkuvuus generatiivisessa kuvassa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kirjoitukset/aikasarjojen-aikajarjestys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aikasarjadata tarvitsee ehjän aikajanan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kirjoitukset/datasta-tietoa-ja-arvoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milloin datasta tulee tietoa – ja arvoa?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In English
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aineisto-ei-ollut-helppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aineisto ei ollut helppo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotointiprosessi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotointiprosessi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esikasittelykokeet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esikäsittelykokeet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faster-r-cnn-yoloa-tuli-ikava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faster R-CNN: YOLOa tuli ikävä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tulokset-kumpi-malli-on-parempi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tulokset: kumpi malli on parempi?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mita-opin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitä opin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kaivonkannet-konenaolla-yolo-vai-faster-r-cnn">Kaivonkannet konenäöllä – YOLO vai Faster R-CNN?</h1>
+<p>Kevään 2026 projektikurssilla kolmen hengen tiimimme sai tehtäväksi kouluttaa neuroverkon, joka löytää kaivonkannet yrityksen kuva-aineistosta. Malli piti opettaa sekä paikantamaan kannet kuvasta että luokittelemaan ne umpi- tai ritiläkansiksi. Aineistossa oli yli 10 000 kuvaa.</p>
+<p>Toimin tiimissä Product Ownerina. Vastasin annotointiprosessin suunnittelusta, testasin kuvakoon ja väriesikäsittelyn vaikutusta ja vastasin vertailun toisesta mallista, Faster R-CNN:stä.</p>
+<div class="admonition note">
+<p class="admonition-title">Miksi koodia tai kuvia ei ole mukana</p>
+<p>Aineisto ja projektin koodi kuuluvat toimeksiannon yhteydessä tehtyyn työhön, joten niitä ei ole julkaistu. Tällä sivulla kerron työstä yleisellä tasolla ilman aineiston kuvia.</p>
+</div>
+<p><strong>Pino:</strong> Python, PyTorch, Ultralytics YOLO, torchvision Faster R-CNN, Label Studio, PostgreSQL, marimo, Docker · <strong>Työtapa:</strong> viikon sprintit, muutokset merge requestien kautta</p>
+<h2 id="aineisto-ei-ollut-helppo">Aineisto ei ollut helppo</h2>
+<p>Kuvat oli otettu oikeissa olosuhteissa, eivätkä ne olleet siistejä harjoitusaineistoja. Suurimmat haasteet olivat:</p>
+<ul>
+<li><strong>Luokkaepätasapaino.</strong> Umpikansia oli selvästi enemmän kuin ritiläkansia.</li>
+<li><strong>Kuvanlaatu.</strong> Osa kuvista oli epätarkkoja, varjoisia tai ylivalottuneita, ja joissakin sormi peitti osan linssistä.</li>
+<li><strong>Pienet kohteet.</strong> Osa kansista oli kaukana ja kuvassa hyvin pieniä, ja samassa kuvassa saattoi olla useita.</li>
+<li><strong>Peittymät.</strong> Hiekka, kasvillisuus tai muut esineet peittivät kansia osittain.</li>
+</ul>
+<h2 id="annotointiprosessi">Annotointiprosessi</h2>
+<p>Suunnittelin annotoinnin kaksivaiheiseksi:</p>
+<ol>
+<li><strong>Käsin annotointi.</strong> Annotoimme ensin noin 600 kuvaa käsin Label Studiossa.</li>
+<li><strong>Malliavusteinen annotointi.</strong> Näillä kuvilla koulutettu YOLO-malli kytkettiin Label Studioon ehdottamaan rajauslaatikoita. Ihminen tarkisti ja korjasi ehdotukset, mikä nopeutti työtä huomattavasti.</li>
+</ol>
+<p>Annotaatiot tallennettiin PostgreSQL-tietokantaan, josta datan jako koulutus-, validointi- ja testijoukkoihin tehtiin sovituilla ehdoilla.</p>
+<p>Label Studion vientidata tarkistettiin ennen tietokantaan tuontia, ja selvät klikkausvirheet, kuten lähes nollakokoiset rajauslaatikot, poistettiin. Lisäksi aineistosta löytyi vioittuneita ja vajaita kuvatiedostoja. Korjasimme vioittuneet JPEG-otsakkeet ja estimme vajaiden kuvien pääsyn koulutusdataan: datasetin muodostava skripti avaa jokaisen kuvan ja ohittaa ne, joita ei voi käsitellä. Rikkinäisistä kuvista tuli hyvä opetus: YOLO pystyi käsittelemään ne, mutta Faster R-CNN:n koulutus kaatui niihin. Jos olisimme käyttäneet vain YOLOa, ongelma olisi voinut jäädä huomaamatta.</p>
+<h2 id="esikasittelykokeet">Esikäsittelykokeet</h2>
+<p>Aineiston haasteista nousi kolme kysymystä, joita testasimme ennen lopullista koulutusta:</p>
+<table>
+<thead>
+<tr>
+<th>Koe</th>
+<th>Mitä testattiin</th>
+<th>Tulos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kuvakoko</strong></td>
+<td>640 vs. 960 pikseliä, koska osa kohteista oli pieniä</td>
+<td>Suurempi kuvakoko paransi tuloksia hieman, eikä koulutusaika kasvanut merkittävästi</td>
+</tr>
+<tr>
+<td><strong>Väriesikäsittely</strong></td>
+<td>Harmaasävy, kontrastin muutos ja matalampi värikylläisyys</td>
+<td>Pidemmässä koulutuksessa alkuperäiset kuvat toimivat parhaiten</td>
+</tr>
+<tr>
+<td><strong>Downsampling</strong></td>
+<td>Umpikansien vähentäminen koulutusdatasta</td>
+<td>Auttoi mallia erottamaan harvinaisemman ritiläluokan</td>
+</tr>
+</tbody>
+</table>
+<p>Tein kuvakoko- ja väriesikäsittelykokeet itse. Lopulliseksi asetelmaksi valikoitui 960 pikselin kuvakoko, tasapainotettu aineisto ja alkuperäiset kuvat ilman väriesikäsittelyä.</p>
+<h2 id="faster-r-cnn-yoloa-tuli-ikava">Faster R-CNN: YOLOa tuli ikävä</h2>
+<p>Vastasin vertailun toisesta mallista, Faster R-CNN:stä (ResNet50-FPN v2). Työ osoittautui paljon työläämmäksi kuin YOLOn kanssa. YOLO hoitaa datan lukemisen, koulutuksen ja arvioinnin pitkälti valmiiksi, mutta Faster R-CNN:lle piti rakentaa itse muun muassa YOLO-muotoisten annotaatioiden muunnos mallin ymmärtämään muotoon, koulutus, validointi, metriikoiden laskenta ja virheanalyysi. Sen jälkeen ymmärrän paljon paremmin, mitä valmiit kirjastot tekevät käyttäjän puolesta.</p>
+<p>Ero näkyy hyvin koodissa. YOLOn koulutus on käytännössä yksi funktiokutsu:</p>
+<div class="language-python highlight"><span class="filename">YOLOn koulutus (ote omasta notebookistani)</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo26s.pt"</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"data/yolo_downsampled/data.yaml"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>   <span class="c1"># GPU</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">patience</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Faster R-CNN:lle sama data piti ensin muuntaa. YOLO tallentaa rajauslaatikon keskipisteenä, leveytenä ja korkeutena suhteessa kuvan kokoon, mutta Faster R-CNN odottaa laatikon kulmapisteitä pikseleinä. Tämä muunnos oli vasta yksi palanen: sen lisäksi tarvittiin oma Dataset-luokka, koulutussilmukka, validointi ja metriikoiden laskenta. Koko koulutus- ja validointinotebook kasvoi lähes 1 300 riviin.</p>
+<div class="language-python highlight"><span class="filename">YOLO-laatikon muunnos Faster R-CNN:n muotoon (lyhennetty ote omasta notebookistani)</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">convert_yolo_box_to_xyxy</span><span class="p">(</span><span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="c1"># YOLO: keskipiste ja koko suhteellisina arvoina (0–1)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">box_x_center</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">*</span> <span class="n">image_width</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">box_y_center</span> <span class="o">=</span> <span class="n">y_center</span> <span class="o">*</span> <span class="n">image_height</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">box_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">image_width</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">box_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="n">image_height</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="c1"># Faster R-CNN: vasen yläkulma ja oikea alakulma pikseleinä</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">x_min</span> <span class="o">=</span> <span class="n">box_x_center</span> <span class="o">-</span> <span class="n">box_width</span> <span class="o">/</span> <span class="mi">2</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">y_min</span> <span class="o">=</span> <span class="n">box_y_center</span> <span class="o">-</span> <span class="n">box_height</span> <span class="o">/</span> <span class="mi">2</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">x_max</span> <span class="o">=</span> <span class="n">box_x_center</span> <span class="o">+</span> <span class="n">box_width</span> <span class="o">/</span> <span class="mi">2</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">y_max</span> <span class="o">=</span> <span class="n">box_y_center</span> <span class="o">+</span> <span class="n">box_height</span> <span class="o">/</span> <span class="mi">2</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># Varmistetaan, ettei laatikko mene kuvan ulkopuolelle.</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x_min</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">x_max</span><span class="p">,</span> <span class="n">image_width</span><span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y_min</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">y_max</span><span class="p">,</span> <span class="n">image_height</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">x_min</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_max</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="tulokset-kumpi-malli-on-parempi">Tulokset: kumpi malli on parempi?</h2>
+<table>
+<thead>
+<tr>
+<th>Malli</th>
+<th style="text-align: right;">mAP50</th>
+<th style="text-align: right;">mAP50-95</th>
+<th style="text-align: right;">Precision</th>
+<th style="text-align: right;">Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLO26s</td>
+<td style="text-align: right;">0,907</td>
+<td style="text-align: right;">0,707</td>
+<td style="text-align: right;">0,941</td>
+<td style="text-align: right;">0,906</td>
+</tr>
+<tr>
+<td>Faster R-CNN ResNet50-FPN v2</td>
+<td style="text-align: right;">0,918</td>
+<td style="text-align: right;">0,613</td>
+<td style="text-align: right;">0,837</td>
+<td style="text-align: right;">0,939</td>
+</tr>
+</tbody>
+</table>
+<p><em>Testijoukon tulokset.</em></p>
+<p>Mallit päätyivät lähes samaan mAP50-tulokseen, mutta ne tekevät eri asioita hyvin. <strong>YOLO osuu useammin oikeaan</strong> (korkeampi precision) mutta jättää useamman kannen löytämättä. <strong>Faster R-CNN löytää enemmän kansia</strong> (korkeampi recall) mutta tekee enemmän vääriä havaintoja. YOLO paikantaa kannet myös tarkemmin, mikä näkyy korkeampana mAP50-95-arvona.</p>
+<p>Yhtä oikeaa vastausta ei siis ole. Jos tärkeintä on löytää kaikki kannet ja ihminen tarkistaa tulokset joka tapauksessa, Faster R-CNN:n korkeampi recall on arvokkaampi. Jos väärät havainnot tulevat kalliiksi, YOLO on parempi valinta.</p>
+<p>Virheanalyysissä mallien virheet jakautuivat muutamaan tyyppiin: saman kannen tuplaennusteet, kokonaan löytämättä jääneet kannet ja matalan varmuuden ennusteet. Osa "virheistä" paljastui itse asiassa virheellisiksi annotaatioiksi: malli oli oikeassa ja merkintä väärin. Tarkistimme jokaisen malliavusteisen ehdotuksen käsin, ja silti virheitä jäi. Sellaista se on human in the loop -työskentelyssä: välillä silmukan heikoin lenkki on se ihminen. 😄</p>
+<p>Lopuksi teimme mallin ympärille yksinkertaisen demosovelluksen, joka käy läpi kansiollisen kuvia ja tallentaa havainnot CSV-tiedostoon.</p>
+<h2 id="mita-opin">Mitä opin</h2>
+<p><strong>Datan laatu ratkaisee.</strong> Rikkinäinen kuva kaatoi toisen mallin koulutuksen, ja virheelliset annotaatiot näyttivät virheanalyysissä mallin virheiltä. Malli on vain niin hyvä kuin data, jolla se koulutetaan – <em>garbage in, garbage out</em>.</p>
+<p><strong>Mallin valinta ei ole pelkkä luku.</strong> Kaksi mallia, joilla on lähes sama mAP50, voivat sopia aivan eri käyttötarkoituksiin. Valinta riippuu siitä, kumpi virhe on kalliimpi: löytämättä jäänyt kansi vai väärä havainto.</p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Projektin tausta</p>
+<p>Projektikurssin tiimityö kevät 2026, toimeksiantona yrityksen aineisto. Tiimissä oli kolme opiskelijaa. Sivulla kerrotut tulokset ovat tiimin yhteisiä, ja omat osuuteni on mainittu erikseen.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Takaisin ylös
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Sara Pyky
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
