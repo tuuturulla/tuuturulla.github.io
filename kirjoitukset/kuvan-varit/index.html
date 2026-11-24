@@ -1,0 +1,1183 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="RGB- ja HSV-kokeiluja kahdella kuvalla sekä pohdintaa väripaletin käyttökelpoisuudesta.">
+      
+      
+      
+        <link rel="canonical" href="https://tuuturulla.github.io/kirjoitukset/kuvan-varit/">
+      
+      
+        <link rel="prev" href="../genai-hahmon-jatkuvuus/">
+      
+      
+        <link rel="next" href="../aikasarjojen-aikajarjestys/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Miten kuvasta syntyy toimiva väripaletti? - Sara Pyky | Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="portfolio" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#miten-kuvasta-syntyy-toimiva-varipaletti" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="../.." title="Sara Pyky | Portfolio" class="md-header__button md-logo" aria-label="Sara Pyky | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sara Pyky | Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Miten kuvasta syntyy toimiva väripaletti?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="portfolio" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Välilehdet" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Etusivu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projektit/menomittari/" class="md-tabs__link">
+          
+  
+  
+  Projektit
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../kieli-ja-konteksti/" class="md-tabs__link">
+          
+  
+  
+  Koneoppiminen ja tekoäly
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../aikasarjojen-aikajarjestys/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../en/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  In English
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sara Pyky | Portfolio" class="md-nav__button md-logo" aria-label="Sara Pyky | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sara Pyky | Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Etusivu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projektit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projektit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projektit/menomittari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menomittari – mihin rahat menevät?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projektit/junajumis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JunaJumis – asemat, joissa aikataulu käy kahvilla
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Koneoppiminen ja tekoäly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Koneoppiminen ja tekoäly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kieli-ja-konteksti/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanoista numeroiksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genai-hahmon-jatkuvuus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kun malli vaihtuu: hahmon jatkuvuus generatiivisessa kuvassa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miten kuvasta syntyy toimiva väripaletti?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miten kuvasta syntyy toimiva väripaletti?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pikseleista-varikartaksi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pikseleistä värikartaksi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rgb-vai-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RGB vai HSV?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuinka-monta-varia-mukaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuinka monta väriä mukaan?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sama-menetelma-kaksi-erilaista-kuvaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sama menetelmä, kaksi erilaista kuvaa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sama menetelmä, kaksi erilaista kuvaa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bird-tiivis-paletti-toimi-paremmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bird: tiivis paletti toimi paremmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muffin-rikkaampi-paletti-toimi-paremmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muffin: rikkaampi paletti toimi paremmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mita-toimiva-tarkoittaa-tassa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitä ”toimiva” tarkoittaa tässä?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lahteet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lähteet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aikasarjojen-aikajarjestys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aikasarjadata tarvitsee ehjän aikajanan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datasta-tietoa-ja-arvoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milloin datasta tulee tietoa – ja arvoa?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In English
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pikseleista-varikartaksi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pikseleistä värikartaksi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rgb-vai-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RGB vai HSV?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuinka-monta-varia-mukaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuinka monta väriä mukaan?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sama-menetelma-kaksi-erilaista-kuvaa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sama menetelmä, kaksi erilaista kuvaa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sama menetelmä, kaksi erilaista kuvaa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bird-tiivis-paletti-toimi-paremmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bird: tiivis paletti toimi paremmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muffin-rikkaampi-paletti-toimi-paremmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muffin: rikkaampi paletti toimi paremmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mita-toimiva-tarkoittaa-tassa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitä ”toimiva” tarkoittaa tässä?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lahteet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lähteet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="miten-kuvasta-syntyy-toimiva-varipaletti">Miten kuvasta syntyy toimiva väripaletti?</h1>
+<p>Lähdin tutustumaan ja vertailemaan RGB- ja HSV-värimalleja muutamilla eri kuvilla, joista kahden tuloksia esittelen tässä. Tavoitteena oli luoda skripti, joka palauttaa k-arvon mukaisen värikartan annetun kuvan perusteella.</p>
+<h2 id="pikseleista-varikartaksi">Pikseleistä värikartaksi</h2>
+<p><strong>k-Means</strong> on klusterointialgoritmi eli ohjaamaton koneoppimismenetelmä, joka pyrkii ryhmittelemään havainnot siten, että saman klusterin jäsenet ovat mahdollisimman samanlaisia ja eri klusterit mahdollisimman erilaisia. Jokainen havainto lisätään siihen klusteriin, jonka keskipiste eli <em>centroid</em> on sitä lähimpänä. <sup id="fnref:geeks"><a class="footnote-ref" href="#fn:geeks">1</a></sup></p>
+<p>Hyödynsin kuvien lukemiseen valmista Python-kirjastoa <code>OpenCV</code>. Jokainen pikseli käsiteltiin omana havaintonaan. Toteutin k-Means-algoritmin <code>scikit-learn</code>-kirjaston <code>sklearn.cluster</code>-moduulilla ja muodostin molemmista malleista posterisoidun kuvan sekä väripaletin. Väripaletit järjestettiin värien yleisyyden mukaan ja laskettiin niiden prosenttiosuudet.</p>
+<h2 id="rgb-vai-hsv">RGB vai HSV?</h2>
+<p>RGB koostuu kolmesta pääkanavasta: punaisesta, vihreästä ja sinisestä. Kaikki muut värit syntyvät yhdistämällä näitä kolmea pääväriä. <sup id="fnref:geeks2"><a class="footnote-ref" href="#fn:geeks2">2</a></sup></p>
+<p>HSV kuvaa väriä sävyn, kylläisyyden ja kirkkauden avulla: <sup id="fnref2:geeks2"><a class="footnote-ref" href="#fn:geeks2">2</a></sup></p>
+<ul>
+<li><strong>Hue (sävy)</strong> kertoo itse värin, esimerkiksi punaisen tai vihreän. Sävy ilmaistaan kulmana värikehässä.</li>
+<li><strong>Saturation (kylläisyys)</strong> kuvaa värin puhtautta. Arvo 0 tarkoittaa harmaata, ja mitä suurempi arvo, sitä voimakkaampi ja ”puhtaampi” väri on.</li>
+<li><strong>Value (kirkkaus)</strong> kertoo, kuinka tumma tai vaalea väri on.</li>
+</ul>
+<p>Tein kaksi klusterointia alkuun samalla klustereiden määrällä k: RGB-avaruudessa ja HSV-avaruudessa siten, että Hue enkoodattiin syklisesti koordinaatteina <code>(cos H, sin H)</code> ja kylläisyys sekä kirkkaus lisättiin piirteiksi <code>(S, V)</code>. Kokeilin myös painotuksia korostaakseni värisävyä suhteessa kirkkauteen.</p>
+<p>Syklinen enkoodaus on tärkeä, koska sävy on kulma: OpenCV:n asteikolla arvot 0 ja 179 ovat molemmat punaista, vaikka ne ovat lukuina kaukana toisistaan. Kun sävy muutetaan kosiniksi ja siniksi, k-Means näkee nämä värit lähekkäin:</p>
+<div class="language-python highlight"><span class="filename">HSV-piirteet k-Meansille (ote omasta skriptistäni)</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">hsv</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2HSV</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">H</span> <span class="o">=</span> <span class="n">hsv</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span>   <span class="c1"># OpenCV: H 0..179 → radiaaneiksi</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">S</span> <span class="o">=</span> <span class="n">hsv</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">V</span> <span class="o">=</span> <span class="n">hsv</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Sävy ympyrälle (cos, sin), kylläisyydelle oma painokerroin</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">w_H</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">H</span><span class="p">),</span> <span class="n">w_H</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">H</span><span class="p">),</span> <span class="n">w_S</span> <span class="o">*</span> <span class="n">S</span><span class="p">,</span> <span class="n">w_V</span> <span class="o">*</span> <span class="n">V</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Klusterikeskukset muunnetaan lopuksi takaisin HSV-arvoiksi <code>arctan2</code>-funktiolla, jotta niistä saadaan paletin värit.</p>
+<h2 id="kuinka-monta-varia-mukaan">Kuinka monta väriä mukaan?</h2>
+<p>Myöhemmin lähdin etsimään molemmille malleille sopivaa k-arvoa elbow-menetelmällä.</p>
+<p>Algoritmin tavoitteena on löytää klusterikeskukset, jotka minimoivat klusterien sisäisen hajonnan eli inertian. <sup id="fnref:scikit"><a class="footnote-ref" href="#fn:scikit">3</a></sup> Kun klustereiden määrää k kasvatetaan, inertia pienenee, mutta jossain vaiheessa lisäklusterit eivät enää tuo merkittävää parannusta. Tätä voidaan esittää elbow-menetelmällä, josta sopiva k-arvo voidaan päätellä etsimällä niin sanottu ”olkapää”. <sup id="fnref:vid1"><a class="footnote-ref" href="#fn:vid1">4</a></sup></p>
+<p><img alt="Bird-kuvan elbow-käyrät RGB- ja HSV-esityksille" class="evidence-image" src="../../assets/hsvrgbelbow.webp" /></p>
+<p><em>Bird-kuvassa RGB:n inertia tasaantuu noin k=4–5 kohdalla, kun taas HSV:n inertia loivenee vielä k=7–9 asti. Siksi valitsin vertailuun RGB:lle k=5 ja HSV:lle k=9.</em></p>
+<p>Eri k-arvot eivät siis olleet mielivaltaisia. Valitsin klustereiden määrän kummallekin väriavaruudelle erikseen sen perusteella, missä elbow-käyrä alkoi tasaantua. Väriavaruudet kuvaavat samaa kuvaa eri tavoin, joten myös niiden käyrät saavuttavat hyödyllisen kompromissin eri kohdissa.</p>
+<h2 id="sama-menetelma-kaksi-erilaista-kuvaa">Sama menetelmä, kaksi erilaista kuvaa</h2>
+<h3 id="bird-tiivis-paletti-toimi-paremmin">Bird: tiivis paletti toimi paremmin</h3>
+<p><img alt="Bird-kuva sekä RGB-paletti viidellä ja HSV-paletti yhdeksällä klusterilla" class="evidence-image" src="../../assets/birdfigure.webp" /></p>
+<p><em>Bird-kuvan värikartat ja posterisoidut kuvat. Tässä kuvassa on jo otettu käyttöön korkeampi k-arvo HSV-mallille.</em></p>
+<p>Bird-kuvassa RGB-malli yksinkertaistaa värit selkeämmin ja lopputulos näyttää realistisemmalta. HSV taas erottelee enemmän sävyjä, mutta kuvan vaaleus näyttäisi johtavan siihen, että se painottaa vaaleita alueita, minkä vuoksi linnun yksityiskohdat hukkuvat.</p>
+<h3 id="muffin-rikkaampi-paletti-toimi-paremmin">Muffin: rikkaampi paletti toimi paremmin</h3>
+<p><img alt="Muffin-kuva sekä RGB-paletti kolmella ja HSV-paletti kuudella klusterilla" class="evidence-image" src="../../assets/muffinfigure.webp" /></p>
+<p><em>Muffin-kuvan värikartat ja posterisoidut kuvat.</em></p>
+<p>Tässä on nähtävissä, kuinka HSV-malli rajaa värit tarkemmin ja yksityiskohtaisemmin kuin RGB-malli. HSV-mallin tulos on vähemmän pehmeä, mutta informatiivisempi.</p>
+<p><img alt="Muffin-kuvan elbow-käyrät RGB- ja HSV-esityksille" class="evidence-image" src="../../assets/muffinelbow.webp" /></p>
+<p><em>Muffin-kuvassa RGB:n käyrä tasoittuu noin k=3–4 kohdalla ja HSV:n käyrä loivenee noin k=6–8 kohdalla. Siksi käytin esimerkissä RGB:lle k=3 ja HSV:lle k=6.</em></p>
+<h2 id="mita-toimiva-tarkoittaa-tassa">Mitä ”toimiva” tarkoittaa tässä?</h2>
+<p>Jos hakisimme Bird-kuvasta esimerkiksi sisustuksen väripalettia, yli yhdeksän sävyä voisi tuntua paljolta, joten näen RGB-mallin toimivan tälle kuvalle paremmin.</p>
+<p>Muffin-kuvassa taas sisustuksen väripalettia ajatellen HSV-malli toimi paremmin ja siltä saisi rikkaamman väripaletin.</p>
+<p>Käyttötarkoitus voi kuitenkin olla toinenkin kuin sisustus. Bird-kuvassa HSV voisi kertoa RGB:tä paremmin kuvan yleisestä luonteesta, koska se tuo vaaleuden ja sävyjen vaihtelun näkyväksi voimakkaammin. Tällöin HSV:n suurempi klusterimäärä ei ole huono asia, vaan se auttaa kuvaamaan juuri sitä piirrettä, jota haluamme tarkastella. Muffin-kuvassa HSV:n rikkaampi paletti puolestaan säilytti pieniä sävyeroja, jotka RGB tiivisti helpommin yhteen.</p>
+<p>Näistä kokeiluista jäi itselleni käteen, ettei toimiva väripaletti tarkoita aina mahdollisimman montaa sävyä. Se syntyy väriavaruuden, elbow-menetelmällä valitun klusterimäärän ja käyttötarkoituksen yhteensovittamisesta. Sama kuva voi siis tarvita eri vastauksen sen mukaan, halutaanko siitä tiivis käyttöpaletti vai kuvan valoisuutta ja sävyvaihtelua kuvaava esitys.</p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Kirjoituksen tausta</p>
+<p>Kirjoitus on toimitettu Johdatus koneoppimiseen -oppimispäiväkirjani värikarttamerkinnästä. Kuvat esittävät siinä käsiteltyjen kokeilujen tuloksia. Koodikatkelma on lyhennetty ote omasta värikarttaskriptistäni. Kurssimateriaali: Jani Sourander. <sup id="fnref:lmkurssi"><a class="footnote-ref" href="#fn:lmkurssi">5</a></sup></p>
+</div>
+<h2 id="lahteet">Lähteet</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:geeks">
+<p>GeeksforGeeks. K-means clustering – Introduction. <a href="https://www.geeksforgeeks.org/machine-learning/k-means-clustering-introduction/">Verkkolähde</a>. 2025&#160;<a class="footnote-backref" href="#fnref:geeks" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:geeks2">
+<p>GeeksforGeeks. Difference Between RGB, CMYK, HSV, and YIQ Color Models <a href="https://www.geeksforgeeks.org/computer-graphics/difference-between-rgb-cmyk-hsv-and-yiq-color-models/">Verkkolähde</a>. 2025&#160;<a class="footnote-backref" href="#fnref:geeks2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:geeks2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:scikit">
+<p>Scikit-learn. Clustering. <a href="https://scikit-learn.org/stable/modules/clustering.html">Verkkolähde</a>&#160;<a class="footnote-backref" href="#fnref:scikit" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:vid1">
+<p>StatQuest with Josh Starmer. StatQuest: K-means clustering. YouTube. <a href="https://www.youtube.com/watch?v=4b5d3muPQmA">Verkkolähde</a>. 2018&#160;<a class="footnote-backref" href="#fnref:vid1" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:lmkurssi">
+<p>Jani Sourander. Johdatus koneoppimiseen -verkkomateriaali. <a href="https://sourander.github.io/ml-perusteet/">Verkkolähde</a>&#160;<a class="footnote-backref" href="#fnref:lmkurssi" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Takaisin ylös
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Sara Pyky
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
