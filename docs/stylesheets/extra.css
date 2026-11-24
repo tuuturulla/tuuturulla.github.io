@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+[data-md-color-scheme="portfolio"] {
+  --md-primary-fg-color: #b85e45;
+  --md-primary-fg-color--light: #ead9cd;
+  --md-primary-fg-color--dark: #7b3f2f;
+  --md-accent-fg-color: #9c4d38;
+  --md-default-fg-color: #302b26;
+  --md-default-fg-color--light: #665e55;
+  --md-default-bg-color: #f6f1e8;
+  --md-typeset-color: #302b26;
+  --md-typeset-a-color: #9c4d38;
+  --md-code-bg-color: #343a38;
+  --md-code-fg-color: #f7f2e8;
+}
+
+:root {
+  --portfolio-ink: #302b26;
+  --portfolio-muted: #665e55;
+  --portfolio-paper: #f6f1e8;
+  --portfolio-paper-deep: #ebe2d5;
+  --portfolio-rust: #b85e45;
+  --portfolio-rust-deep: #934532;
+  --portfolio-moss: #60745e;
+  --portfolio-moss-pale: #e1e8df;
+  --portfolio-rule: #cfc1b2;
+}
+
+.md-typeset,
+.md-header,
+.md-tabs {
+  font-family: "DM Sans", sans-serif;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--portfolio-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.md-typeset,
+.md-typeset p,
+.md-typeset li {
+  color: var(--portfolio-ink);
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+  color: var(--portfolio-rust-deep) !important;
+}
+
+.md-typeset h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.02;
+  margin: 0.25em 0 0.35em;
+}
+
+.md-typeset h2 {
+  margin-top: 2.4em;
+}
+
+.md-header,
+.md-tabs {
+  background: var(--portfolio-paper);
+  color: var(--portfolio-ink);
+  box-shadow: inset 0 -1px 0 rgba(48, 43, 38, 0.08);
+}
+
+.md-header__button.md-logo,
+.md-header__button.md-logo img {
+  display: none;
+}
+
+.md-header__title,
+.md-tabs__link {
+  color: var(--portfolio-ink);
+  font-family: "DM Mono", monospace;
+  font-size: 0.73rem;
+  letter-spacing: 0.07em;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--portfolio-rust);
+}
+
+.md-tabs__item--active .md-tabs__link {
+  border-bottom-color: var(--portfolio-rust);
+}
+
+/* Keep active navigation areas quiet instead of using Material's dark fill. */
+.md-tabs__item--active,
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item--active::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-main {
+  background: var(--portfolio-paper);
+}
+
+.md-content {
+  max-width: 53rem;
+}
+
+.hero {
+  max-width: 48rem;
+  margin: 8vh 0 4rem;
+}
+
+.hero > p:not(.eyebrow) {
+  color: var(--portfolio-ink);
+  font-size: 1.18rem;
+  line-height: 1.7;
+  max-width: 43rem;
+}
+
+.profile-links {
+  font-family: "DM Mono", monospace;
+  font-size: 0.82rem;
+  margin: 1.4rem 0 3.5rem;
+}
+
+.profile-links a {
+  color: var(--portfolio-rust);
+}
+
+.section-label {
+  color: var(--portfolio-rust);
+  font-family: "DM Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.09em;
+  margin: 5rem 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.principle-number {
+  color: var(--portfolio-rust);
+  font-family: "DM Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+}
+
+.article-card {
+  display: block;
+  background: rgba(255, 253, 248, 0.26);
+  border: 1px solid var(--portfolio-rule);
+  border-radius: 0.2rem;
+  margin: 1.4rem 0 4rem;
+  padding: 1.8rem 2rem 1.9rem;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.article-card,
+.article-card h3,
+.article-card p {
+  color: var(--portfolio-ink) !important;
+  opacity: 1;
+}
+
+.article-card:hover {
+  background: var(--portfolio-paper-deep);
+  border-color: #bba794;
+  transform: translateY(-2px);
+}
+
+.article-card h3 {
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  margin: 0.2rem 0 0.65rem;
+}
+
+.article-card p {
+  max-width: 35rem;
+}
+
+.md-typeset .card-meta {
+  color: var(--portfolio-moss) !important;
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.md-typeset .card-tags {
+  color: var(--portfolio-muted) !important;
+  font-family: "DM Mono", monospace;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  margin: 0.9rem 0 1.1rem;
+}
+
+.md-typeset .lang-switch {
+  color: var(--portfolio-rust);
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.card-link {
+  color: var(--portfolio-rust) !important;
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.principles {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.5rem 0 5rem;
+}
+
+.principles > div {
+  border-top: 2px solid var(--portfolio-moss);
+  padding-top: 0.8rem;
+}
+
+.principles h3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  letter-spacing: normal;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.principles p:not(.principle-number) {
+  color: var(--portfolio-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.timeline {
+  align-items: stretch;
+  display: flex;
+  margin: 1.6rem 0 3rem;
+}
+
+.timeline-part {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.timeline-part span {
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+}
+
+.timeline-part.training {
+  background: var(--portfolio-moss);
+  color: #f7f2e8;
+}
+
+.timeline-part.test {
+  background: var(--portfolio-rust);
+  color: #fff9f2;
+}
+
+.md-typeset code {
+  font-family: "DM Mono", monospace;
+}
+
+.md-typeset .highlight .filename {
+  background: #343a38;
+  color: #f7f2e8;
+  font-family: "DM Sans", sans-serif;
+}
+
+.evidence-image {
+  background: #262a28;
+  border: 1px solid var(--portfolio-rule);
+  display: block;
+  margin: 1.6rem 0 0;
+  width: 100%;
+}
+
+/* Hand-drawn diagrams with a transparent background sit directly on the page. */
+.evidence-image.diagram-image {
+  background: transparent;
+  border: none;
+}
+
+/* Every article uses an image paragraph followed by an italic caption paragraph. */
+.md-typeset p:has(> .evidence-image),
+.md-typeset p:has(> a > .evidence-image) {
+  margin-bottom: 0;
+}
+
+.md-typeset p:has(> .evidence-image) + p,
+.md-typeset p:has(> a > .evidence-image) + p,
+.md-typeset .figure-caption {
+  color: var(--portfolio-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  margin-top: 0.65rem;
+}
+
+.md-typeset iframe {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--portfolio-moss-pale);
+  border-color: var(--portfolio-moss);
+  color: var(--portfolio-ink);
+}
+
+.md-typeset .admonition .admonition-title,
+.md-typeset details .admonition-title {
+  background: #d3dfd1;
+  color: var(--portfolio-ink);
+}
+
+.md-typeset .admonition.note > .admonition-title::before {
+  background-color: var(--portfolio-moss);
+}
+
+.md-typeset .admonition p,
+.md-typeset .admonition .admonition-title,
+.md-typeset details p {
+  color: var(--portfolio-ink);
+}
+
+.md-sidebar,
+.md-sidebar__scrollwrap,
+.md-nav,
+.md-nav__title {
+  background: var(--portfolio-paper);
+}
+
+.md-sidebar .md-nav__title,
+.md-sidebar .md-nav__link,
+.md-sidebar .md-nav__link--active,
+.md-sidebar .md-nav__link:hover {
+  opacity: 1;
+}
+
+.md-sidebar .md-nav__title {
+  color: var(--portfolio-ink);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* Material's secondary navigation inherits dark-mode title colors otherwise. */
+.md-sidebar--secondary .md-sidebar__scrollwrap,
+.md-sidebar--secondary .md-nav,
+.md-sidebar--secondary .md-nav__title {
+  background: var(--portfolio-paper) !important;
+  color: var(--portfolio-ink) !important;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  border-bottom: 1px solid var(--portfolio-rule);
+}
+
+.md-sidebar--secondary .md-nav__title {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-sidebar .md-nav__link {
+  color: var(--portfolio-muted);
+}
+
+.md-sidebar .md-nav__link--active,
+.md-sidebar .md-nav__link:hover {
+  color: var(--portfolio-rust);
+}
+
+.md-typeset table:not([class]) {
+  background: transparent;
+  border: 1px solid var(--portfolio-rule);
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) tr:nth-child(2n) {
+  background: transparent;
+  color: var(--portfolio-ink);
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--portfolio-paper-deep);
+  font-weight: 700;
+}
+
+.md-search__input {
+  background: var(--portfolio-paper-deep);
+  color: var(--portfolio-ink);
+}
+
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--portfolio-muted);
+  opacity: 1;
+}
+
+/* Keep search results readable in both configured colour schemes. */
+.md-search__output,
+.md-search__scrollwrap,
+.md-search-result,
+.md-search-result__more[open] > summary {
+  background: var(--portfolio-paper);
+  color: var(--portfolio-ink);
+}
+
+.md-search-result__meta {
+  background: var(--portfolio-paper-deep);
+  color: var(--portfolio-muted);
+}
+
+.md-search-result__link,
+.md-search-result__article,
+.md-search-result__article h1,
+.md-search-result__article h2,
+.md-search-result__article p {
+  color: var(--portfolio-ink) !important;
+}
+
+.md-search-result mark {
+  background: transparent;
+  color: var(--portfolio-rust) !important;
+  font-weight: 700;
+}
+
+.md-search-result__more > summary > div {
+  color: var(--portfolio-rust) !important;
+}
+
+.md-search-result__more > summary:hover > div,
+.md-search-result__more > summary:focus > div {
+  color: var(--portfolio-rust-deep) !important;
+}
+
+.md-search-result__item {
+  box-shadow: 0 -0.05rem var(--portfolio-rule);
+}
+
+.md-search-result__link:hover,
+.md-search-result__link:focus {
+  background: var(--portfolio-paper-deep);
+}
+
+.md-footer {
+  background: #27201b;
+}
+
+@media screen and (max-width: 44.9844em) {
+  .hero {
+    margin-top: 2.8rem;
+  }
+
+  .principles {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    flex-direction: column;
+  }
+}
+
+/* Poista navigoinnin mustat aktiiviset taustat */
+
+.md-tabs__item--active,
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item--active::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-sidebar .md-nav__title,
+.md-sidebar .md-nav__title[for],
+.md-sidebar .md-nav__title label {
+  background: var(--portfolio-paper) !important;
+  color: var(--portfolio-ink) !important;
+  box-shadow: none !important;
+}
+
+.md-sidebar .md-nav__link--active,
+.md-sidebar .md-nav__item--active > .md-nav__link {
+  background: transparent !important;
+  color: var(--portfolio-rust) !important;
+  box-shadow: none !important;
+}

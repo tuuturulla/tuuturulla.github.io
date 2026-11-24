@@ -1,0 +1,15 @@
+# Built site (published separately with mkdocs gh-deploy)
+site/
+
+# Private notes
+muistiinpanot/
+
+# Local tooling
+.claude/
+.cache/
+__pycache__/
+.venv/
+
+# Original PNG images (the site uses the WebP versions)
+docs/assets/**/*.png
+!docs/assets/junajumis-arkkitehtuuri.png

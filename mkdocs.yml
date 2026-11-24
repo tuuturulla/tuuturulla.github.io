@@ -1,0 +1,57 @@
+site_name: Sara Pyky | Portfolio
+site_description: Datasta tekoälyyn -opiskelijan kokeiluja ja kirjoituksia datasta, koneoppimisesta ja tekoälystä
+site_url: https://tuuturulla.github.io/
+
+# Original PNG images stay out of the built site; pages use the WebP versions.
+exclude_docs: |
+  assets/**/*.png
+  !assets/junajumis-arkkitehtuuri.png
+
+theme:
+  name: material
+  language: fi
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: portfolio
+      primary: custom
+      accent: custom
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Etusivu: index.md
+  - Projektit:
+      - "Menomittari – mihin rahat menevät?": projektit/menomittari.md
+      - "JunaJumis – asemat, joissa aikataulu käy kahvilla": projektit/junajumis.md
+  - Koneoppiminen ja tekoäly:
+      - Sanoista numeroiksi: kirjoitukset/kieli-ja-konteksti.md
+      - "Kun malli vaihtuu: hahmon jatkuvuus generatiivisessa kuvassa": kirjoitukset/genai-hahmon-jatkuvuus.md
+      - Miten kuvasta syntyy toimiva väripaletti?: kirjoitukset/kuvan-varit.md
+  - Data:
+      - Aikasarjadata tarvitsee ehjän aikajanan: kirjoitukset/aikasarjojen-aikajarjestys.md
+      - Milloin datasta tulee tietoa – ja arvoa?: kirjoitukset/datasta-tietoa-ja-arvoa.md
+  - In English: en/index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2026 Sara Pyky
